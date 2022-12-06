@@ -1,0 +1,11 @@
+com\softtek\entity\Vehiculos.class
+com\softtek\test\TestInsert.class
+com\softtek\repository\IVehiculos.class
+com\softtek\repository\IProveedores.class
+com\softtek\dao\ProveedorDao.class
+com\softtek\db\ConexionJPA.class
+com\softtek\entity\Proveedores.class
+com\softtek\bean\ProveedorBean.class
+com\softtek\entity\Vehiculos_.class
+com\softtek\entity\Proveedores_.class
+com\softtek\dao\VehiculoDao.class

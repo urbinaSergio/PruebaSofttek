@@ -1,0 +1,90 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:p="http://primefaces.org/ui">
+ 
+     <h:head>
+ 
+     </h:head>
+ 
+     <h:body>
+ 
+         <h:form id="frm">
+             <p:outputLabel value="Nombre"/>
+             <p:inputText id="txtNombre" value="#{proveedorBean.proveedores.nombre}" />
+             <p:outputLabel value="Identificación"/>
+             <p:inputText id="txtNumeroIT" value="#{proveedorBean.proveedores.numeroIT}" />
+             <p:outputLabel value="Dirección"/>
+             <p:inputText id="txtDireccion" value="#{proveedorBean.proveedores.direccion}" />
+             <p:outputLabel value="Email"/>
+             <p:inputText id="txtMail" value="#{proveedorBean.proveedores.email}" />
+             <p:outputLabel value="Numero de Vehiculos"/>
+             <p:inputText id="txtNumeroVH" value="#{proveedorBean.proveedores.numeroVH}" />
+             
+             <p:commandButton value="Registrar" actionListener="#{proveedorBean.registro()}" />
+             
+             <br></br>
+             
+             <br></br>
+             <br></br>
+             <br></br>
+             <center><p:commandButton value="Listar" actionListener="#{proveedorBean.listar()}"  update="data"/></center>
+             
+             <br></br>
+             <br></br>
+             <br></br>
+             
+             <p:dataTable id="data" value="#{proveedorBean.listProveedores}" var="proveedores" >
+                 <p:column headerText="Nombre" filterBy="#{proveedores.nombre}" filterMatchMode="contains" >
+                     <p:outputLabel value="#{proveedores.nombre}"  />
+                 </p:column>
+                 
+                 <p:column headerText="NumeroIT" filterBy="#{proveedores.numeroIT}" filterMatchMode="contains" >
+                     <p:outputLabel value="#{proveedores.numeroIT}"  />
+                 </p:column>
+                 
+                 <p:column headerText="Direccion" filterBy="#{proveedores.direccion}" filterMatchMode="contains">
+                     <p:outputLabel value="#{proveedores.direccion}"  />
+                 </p:column>
+                 
+                 <p:column headerText="email" filterBy="#{proveedores.email}" filterMatchMode="contains">
+                     <p:outputLabel value="#{proveedores.email}"  />
+                 </p:column>
+                 
+                 <p:column headerText="numeroVH" filterBy="#{proveedores.numeroVH}" filterMatchMode="contains">
+                     <p:outputLabel value="#{proveedores.numeroVH}"  />
+                 </p:column>
+                 
+                 <p:column headerText="Modificar">
+                     <p:commandLink value="Modificar" actionListener="#{proveedorBean.modificarId(proveedores)}" oncomplete="PF('wdlgDatos').show();" update=":dglDatos"/>
+                     
+                 </p:column>
+                           
+                           
+             </p:dataTable>
+             
+         </h:form>
+         
+         <p:dialog header="Datos" widgetVar="wdlgDatos" id="dglDatos" >
+             <h:form>
+             <p:outputLabel value="Nombre"/>
+             <p:inputText  value="#{proveedorBean.proveedores.nombre}" />
+             
+             <p:outputLabel value="Identificación"/>
+             <p:inputText  value="#{proveedorBean.proveedores.numeroIT}" />
+             <p:outputLabel value="Dirección"/>
+             <p:inputText  value="#{proveedorBean.proveedores.direccion}" />
+             <p:outputLabel value="Email"/>
+             <p:inputText  value="#{proveedorBean.proveedores.email}" />
+             <p:outputLabel value="Numero de Vehiculos"/>
+             <p:inputText  value="#{proveedorBean.proveedores.numeroVH}" />
+             
+             <p:commandButton value="Modificar" actionListener="#{proveedorBean.editar()}" oncomplete="PF('wdlgDatos').hide();"  update=":frm:data"/>
+             
+             <p:commandButton value="Cancelar" immediate="true" oncomplete="PF('wdlgDatos').hide();"/>
+             
+             </h:form>
+         </p:dialog>
+ 
+     </h:body>
+</html>
