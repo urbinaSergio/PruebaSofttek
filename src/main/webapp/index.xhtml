@@ -59,6 +59,10 @@
                      <p:commandLink value="Modificar" actionListener="#{proveedorBean.modificarId(proveedores)}" oncomplete="PF('wdlgDatos').show();" update=":dglDatos"/>
                      
                  </p:column>
+                 
+                 <p:column headerText="Eliminar">
+                     <p:commandLink value="Eliminar" actionListener="#{proveedorBean.delete(proveedores)}"  update="data"/>
+                 </p:column>
                            
                            
              </p:dataTable>

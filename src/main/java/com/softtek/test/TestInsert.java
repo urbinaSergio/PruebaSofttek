@@ -6,7 +6,6 @@
 package com.softtek.test;
 
 import com.softtek.dao.ProveedorDao;
-import com.softtek.entity.Proveedores;
 import com.softtek.repository.IProveedores;
 
 /**

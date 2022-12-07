@@ -82,4 +82,22 @@ public class ProveedorDao implements IProveedores{
         }
     }
     
+    public void eliminarDao(Proveedores p){
+        em = ConexionJPA.conectar();
+        
+        
+        try {
+            
+        Proveedores pro = em.find(Proveedores.class, p.getId());
+        em.getTransaction().begin();
+        em.remove(pro);
+        em.getTransaction().commit();
+        
+        System.out.println("Eliminado");
+            
+        } catch (Exception e) {
+            System.out.println("Ocurrio un error.." + e.getMessage());
+        }
+    } 
+    
 }

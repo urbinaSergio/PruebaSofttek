@@ -92,6 +92,13 @@ public class ProveedorBean {
     }
      
      
-     
-     
+     public void delete(Proveedores p){
+         ProveedorDao prove = new ProveedorDao();
+         try {
+             prove.eliminarDao(p);
+         } catch (Exception e) {
+             System.out.println(e.getMessage());
+         }
+     }
+
 }
